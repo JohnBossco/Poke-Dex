@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    width: 100%;
+    height: 14vw;
+    background-image: url("../images/9bb.jpg");
+    background-size: cover;
+    background-position: 50% 54%;
+}
+
+.container header{
+    font-size: 3.5rem;
+}
