@@ -1,34 +1,40 @@
 .infoContainer{
     display: flex;
     justify-content: center;
+    align-items: center;
     border-bottom: 5px solid black;
     background-color: rgb(134, 184, 255);
 }
 
-.infoHead{
+/* .infoHead{
     display: flex;
     justify-content: space-evenly;
     width: 100vw;
-}
+} */
 
 .info{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-inline: 16.5rem;
+    max-width: 25%;
+    margin-inline: 3rem;
 }
 
 .howToUse{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-inline: 16.5rem;
+    max-width: 25%;
+    margin-inline: 3rem;
 }
 
 .infoText{
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     text-align: center;
+}
+
+.mainSearchBar{
+    flex-basis: 500px;
 }
 
 
