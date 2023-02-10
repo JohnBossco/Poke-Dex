@@ -1,0 +1,33 @@
+.searchBarContainer{
+    position: relative;
+    bottom: 6.5rem;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+
+input[type = submit] {
+    background-image: url("./images/icons8-search-64.png");
+    width: 50px;
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;  
+}
+
+input[type = text]{
+    text-align: center;
+}
+
+.searchbutton{
+    border-radius: 20px;
+    border-color: black;
+    height: 100%;
+    width: 15%;
+}
+
+

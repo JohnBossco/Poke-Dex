@@ -1,30 +1,25 @@
 import React from "react";
-import './nav.css';
-
+import "./nav.css";
 
 export default function Navbar() {
   return (
     <div>
-      <nav className="navbar">
-        Navbar
-        <div className="nav">
-        <ul className="nav-container">
-          <li>
-         <a className="nav-links" href="conceptIdea">Concept Idea</a> 
-          </li>
-          <li>
-         <a className="nav-links" href="info">Info</a> 
-          </li>
-          <li>
-         <a className="nav-links" href="howToUse">How to Use</a> 
-          </li>
-        </ul>
+      <div className="infoContainer">
+        <div className="info">
+          <h1>Info</h1>
+          <div className="infoText">
+             A pokedex is basically a dictionary for the Pokemon it has all the
+            info for all 1008 poke from type, abilities, moves and much more.
+          </div>
         </div>
-      </nav>
+        <div className="howToUse">
+          <h1>How To Use</h1>
+          <div className="infoText">
+            Search anything in the search bar like name type or abilities and a
+            list of pokemon matching that criteria will pop up
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
-
-
-
-
