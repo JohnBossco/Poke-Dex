@@ -10,13 +10,13 @@ export default function Navbar() {
         <div className="nav">
         <ul className="nav-container">
           <li>
-         <a className="nav-links" href="#">Concept Idea</a> 
+         <a className="nav-links" href="conceptIdea">Concept Idea</a> 
           </li>
           <li>
-         <a className="nav-links" href="#">Info</a> 
+         <a className="nav-links" href="info">Info</a> 
           </li>
           <li>
-         <a className="nav-links" href="#">How to Use</a> 
+         <a className="nav-links" href="howToUse">How to Use</a> 
           </li>
         </ul>
         </div>
