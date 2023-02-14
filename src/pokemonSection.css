@@ -26,11 +26,25 @@
 }
 
 #infoBox{
-    background-color: red;
     margin: 50px 50px 0px 50px;
     padding: 200px;
     z-index: 0;
 }
 
+
+.typeBox{
+    background-color: red;
+}
+
+.pokemonBox{
+    background-color: whitesmoke;
+}
+
 .statBox{
+    background-color: black;
+}
+
+.pokemonImage{
+    width: 100px;
+    height: 100px;
 }

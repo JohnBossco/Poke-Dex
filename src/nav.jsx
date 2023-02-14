@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./nav.css";
+import "./pokemonSection.css"
 import Searchbar from './searchBar';
 
+export default function Navbar(props) {
 
-export default function Navbar() {
+
+  function getPokemonData(pokemonName) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+  .then((res) => res.json())
+  .then((data) => {
+    props.onUpdate(data);
+    
+  })
+  }
+  
+
   return (
     <div>
       <div className="infoContainer">
@@ -14,7 +26,7 @@ export default function Navbar() {
             info for all 1008 poke from type, abilities, moves and much more.
           </div>
         </div>
-        <Searchbar className="mainSearchBar" />
+        <Searchbar className="mainSearchBar" onSubmit={getPokemonData} />
         <div className="howToUse">
           <h1>How To Use</h1>
           <div className="infoText">
@@ -26,3 +38,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+//<Searchbar className="mainSearchBar" onSubmit={getPokemonData} />

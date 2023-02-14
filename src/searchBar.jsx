@@ -1,41 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./searchBar.css";
-import Axios from "axios";
-import { useState } from "react";
 
 
-export default function SearchBar() {
+export default function SearchBar(props) {
 
-  const [pokemoneName, setPokemonName] = useState('');
+   const [pokemonName, setpokemonName] = useState('');    
+  
 
-  const searchPokemon = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    Axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemoneName}`).then(
-      (res) => {
-        console.log(res);
-        setPokemonName({ 
-            name: pokemoneName,
-            species: res.data.species.name,
-            img: res.data.sprites.other.home,
-            id: res.data.id,
-                        
-        });
-      }
-    );
-  };
+    props.onSubmit(pokemonName)
 
-  return (
+  }
+
+  function handleChange(e) {
+  setpokemonName(e.target.value);
+  }
+
+  
+    return (
     <div className="searchBarContainer">
       <div className="searchBar">
-        <form onSubmit={searchPokemon}>
+        <form onSubmit={handleSubmit}>
           <input
-            value={pokemoneName}
-            onChange={(event) => {
-              setPokemonName(event.target.value);
-            }}
-            className="searchbutton"
             type="text"
+            value={pokemonName} onChange={handleChange}
+            className="searchbutton"
             placeholder="Search Any Pokèmon"
           />
           <input type="submit" value=""></input>
@@ -43,4 +33,5 @@ export default function SearchBar() {
       </div>
     </div>
   );
-}
+
+};
