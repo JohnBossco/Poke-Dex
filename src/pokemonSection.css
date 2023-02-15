@@ -27,24 +27,40 @@
 
 #infoBox{
     margin: 50px 50px 0px 50px;
-    padding: 200px;
     z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .typeBox{
     background-color: red;
+    padding-block: 200px;
+    padding-inline: 20px;
 }
 
 .pokemonBox{
-    background-color: whitesmoke;
+    background-color: rgb(133, 151, 239);
+    padding: 200px;
 }
 
 .statBox{
     background-color: black;
+    padding: 200px;
 }
 
 .pokemonImage{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+.pokemonInfo{
+    font-size: 1.8rem;
+}
+
+.pokemonName{
+    font-size: 2rem;
+    font-weight: bolder;
 }

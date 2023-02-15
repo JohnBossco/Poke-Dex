@@ -10,7 +10,7 @@ export default function SearchBar(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.onSubmit(pokemonName)
-
+    props.onSpeciesSubmit(pokemonName);
   }
 
   function handleChange(e) {
@@ -24,8 +24,8 @@ export default function SearchBar(props) {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            value={pokemonName} onChange={handleChange}
-            className="searchbutton"
+            value={pokemonName.toLowerCase()} onChange={handleChange}
+            className="searchButton"
             placeholder="Search Any Pokèmon"
           />
           <input type="submit" value=""></input>

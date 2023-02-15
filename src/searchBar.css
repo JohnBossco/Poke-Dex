@@ -23,7 +23,7 @@ input[type = text]{
     text-align: center;
 }
 
-.searchbutton{
+.searchButton{
     border-radius: 20px;
     border-color: black;
     height: 100%;      

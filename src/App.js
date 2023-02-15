@@ -15,14 +15,22 @@ function App() {
     setPokemonData(data);
   };
 
+  const [pokemonSpeciesData, setPokemonSpeciesData] = useState(null);
+
+  const updatePokemonSpeciesData = (data) => {
+    setPokemonSpeciesData(data);
+  };
+
+
 
   return (
     <div className="App">
       <Pokedexheader />
-      <Navbar onUpdate = {updatePokemonData}/>
-      <Pokemonsection pokemonData={pokemonData} />
+      <Navbar onUpdate = {updatePokemonData} onUpdateSpecies={updatePokemonSpeciesData}/>
+      <Pokemonsection pokemonData={pokemonData} getPokemonSpeciesData={pokemonSpeciesData} />
     </div>
   );
 }
+
 
 export default App;
