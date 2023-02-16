@@ -13,17 +13,27 @@ export default function Pokemonsection({ pokemonData, getPokemonSpeciesData }) {
       );
     } else if (
       getPokemonSpeciesData.flavor_text_entries &&
-      getPokemonSpeciesData.flavor_text_entries.length >= 9
+      getPokemonSpeciesData.flavor_text_entries.length >= 1
     ) {
-      const text =
-        getPokemonSpeciesData.flavor_text_entries[8].flavor_text
-          .toLowerCase()
-          .charAt(0)
-          .toUpperCase() +
-        getPokemonSpeciesData.flavor_text_entries[8].flavor_text
-          .slice(1)
-          .toLowerCase();
-      setFlavorText(text);
+      const filteredTextEntries =
+        getPokemonSpeciesData.flavor_text_entries.filter(
+          (entry) => entry.language.name === "en"
+        );
+      if (filteredTextEntries.length > 0) {
+        const text =
+          filteredTextEntries[0].flavor_text
+            .toLowerCase()
+            .charAt(0)
+            .toUpperCase() +
+          filteredTextEntries[0].flavor_text
+            .slice(1)
+            .toLowerCase()
+            .replace("\f", "\n");
+
+        setFlavorText(text);
+      } else {
+        setFlavorText("Info not available in English");
+      }
     } else {
       setFlavorText("Info not available");
     }
