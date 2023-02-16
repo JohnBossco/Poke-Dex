@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./pokemonSection.css";
 
 export default function Pokemonsection({ pokemonData, getPokemonSpeciesData }) {
-  console.log(getPokemonSpeciesData);
-  console.log(pokemonData);
+  const [flavorText, setFlavorText] = useState(
+    "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger."
+  );
 
-  const flavorText =
-    getPokemonSpeciesData &&
-    getPokemonSpeciesData.flavor_text_entries &&
-    getPokemonSpeciesData.flavor_text_entries.length > 8
-      ? getPokemonSpeciesData.flavor_text_entries[8].flavor_text
+  useEffect(() => {
+    if (!getPokemonSpeciesData) {
+      setFlavorText(
+        "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun’s rays, the seed grows progressively larger."
+      );
+    } else if (
+      getPokemonSpeciesData.flavor_text_entries &&
+      getPokemonSpeciesData.flavor_text_entries.length >= 9
+    ) {
+      const text =
+        getPokemonSpeciesData.flavor_text_entries[8].flavor_text
           .toLowerCase()
           .charAt(0)
           .toUpperCase() +
-        getPokemonSpeciesData.flavor_text_entries[8].flavor_text.slice(1).toLowerCase()
-      : "Info not available";
-
+        getPokemonSpeciesData.flavor_text_entries[8].flavor_text
+          .slice(1)
+          .toLowerCase();
+      setFlavorText(text);
+    } else {
+      setFlavorText("Info not available");
+    }
+  }, [getPokemonSpeciesData]);
 
   return (
     <div className="pokemonMainSection">

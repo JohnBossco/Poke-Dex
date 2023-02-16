@@ -1,30 +1,32 @@
 import React from "react";
 import "./nav.css";
-import "./pokemonSection.css"
-import Searchbar from './searchBar';
+import "./pokemonSection.css";
+import Searchbar from "./searchBar";
 
 export default function Navbar(props) {
-
-
   function getPokemonData(pokemonName) {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-  .then((res) => res.json())
-  .then((data) => {
-    props.onUpdate(data);
-    
-  })
-  }
-  
-  function getPokemonSpeciesData(pokemonName) {
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`)
-    .then((res) => res.json())
-    .then((data) => {
-      props.onUpdateSpecies(data);
-      
-    })
+    if (pokemonName.trim() === "") {
+      return;
     }
 
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        props.onUpdate(data);
+      });
+  }
 
+  function getPokemonSpeciesData(pokemonName) {
+    if (pokemonName.trim() === "") {
+      return;
+    }
+
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        props.onUpdateSpecies(data);
+      });
+  }
 
   return (
     <div>
@@ -36,7 +38,11 @@ export default function Navbar(props) {
             info for all 1008 pokèmon from type, abilities, moves and much more.
           </div>
         </div>
-        <Searchbar className="mainSearchBar" onSubmit={getPokemonData} onSpeciesSubmit={getPokemonSpeciesData} />
+        <Searchbar
+          className="mainSearchBar"
+          onSubmit={getPokemonData}
+          onSpeciesSubmit={getPokemonSpeciesData}
+        />
         <div className="howToUse">
           <h1>How To Use</h1>
           <div className="infoText">
